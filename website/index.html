@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DuChef 360° - Engenharia Inteligente</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+    color:#333;
+}
+
+.hero{
+    height:100vh;
+    background-image:url('imgs/oven.png'); /* imagem na pasta correta */
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+    color:white;
+}
+
+/* Overlay escuro para contraste profissional */
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.65);
+}
+
+/* Conteúdo acima do overlay */
+.hero-content{
+    position:relative;
+    z-index:1;
+    max-width:800px;
+    padding:20px;
+}
+
+.hero-content h1{
+    font-size:28px;
+    margin-bottom:10px;
+    letter-spacing:2px;
+}
+
+.hero-content h2{
+    font-size:48px;
+    margin-bottom:20px;
+    font-weight:700;
+}
+
+.hero-content p{
+    font-size:18px;
+    margin-bottom:30px;
+    line-height:1.6;
+}
+
+/* Pequena animação elegante de entrada */
+.hero-content{
+    animation:fadeUp 1.2s ease forwards;
+    opacity:0;
+    transform:translateY(30px);
+}
+
+@keyframes fadeUp{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.btn{
+    padding:12px 28px;
+    background:#ff6a00;
+    color:white;
+    border:none;
+    border-radius:5px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#e55d00;
+}
+
+.section{
+    padding:70px 10%;
+    text-align:center;
+}
+
+.section h2{
+    font-size:32px;
+    margin-bottom:40px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    margin-bottom:15px;
+    font-size:20px;
+}
+
+.dark-section{
+    background:#1f1f1f;
+    color:white;
+}
+
+.dark-section .card{
+    background:#2b2b2b;
+    color:white;
+}
+
+footer{
+    background:#111;
+    color:#aaa;
+    text-align:center;
+    padding:30px;
+    font-size:14px;
+}
+
+.highlight{
+    color:#ff6a00;
+    font-weight:600;
+}
+
+.cta-content{
+    position:relative;
+    z-index:1;
+    max-width:700px;
+    padding:20px;
+}
+
+.cta-content h2{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.cta-content p{
+    font-size:18px;
+    margin-bottom:30px;
+    line-height:1.6;
+}
+
+.product-name{
+    display:block;
+    font-size:64px;
+    font-weight:700;
+    letter-spacing:3px;
+    margin-top:15px;
+    color:#ff6a00;
+    text-transform:uppercase;
+}
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+    <div class="hero-content">
+        <h1>DuChef</h1>
+        <h2>
+            Transforme sua Cozinha em um Centro de Alta Performance com a
+            <span class="product-name">FryMaster</span>
+        </h2>
+        <p>
+            Tecnologia, potência e precisão térmica para quem exige resultados profissionais todos os dias.
+        </p>
+        <button class="btn" onclick="redirecionarParaWhatsApp()">
+            Quero Elevar Meu Nível
+        </button>
+    </div>
+</header>
+
+<section class="section">
+    <h2>Arquitetura de Potência e Confiabilidade</h2>
+    <div class="grid">
+
+        <div class="card">
+            <h3>Motor de Pólo Sombreado</h3>
+            <p>Motor AC de indução robusto, operando ~3000 RPM continuamente. Projetado para ambientes de alta temperatura, garantindo fluxo de ar constante e máxima durabilidade.</p>
+        </div>
+
+        <div class="card">
+            <h3>Ventoinha de Convecção</h3>
+            <p>Construída em aço inox ou alumínio fundido, suporta até 200°C e cria o efeito ciclone de ar pressurizado para fritura uniforme.</p>
+        </div>
+
+        <div class="card">
+            <h3>Sistema de Resfriamento Ativo</h3>
+            <p>Fluxo independente de ar frio protege motor, eletrônica e o ESP32, garantindo estabilidade operacional e vida útil estendida.</p>
+        </div>
+
+        <div class="card">
+            <h3>Resistência Controlada por SSR</h3>
+            <p>Filamento metálico 127/220V com controle inteligente via SSR-25DA, permitindo estabilidade térmica precisa.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="section dark-section">
+    <h2>Controle Digital Inteligente</h2>
+    <div class="grid">
+
+        <div class="card">
+            <h3>ESP32</h3>
+            <p>Microcontrolador com Wi-Fi e Bluetooth que gerencia tempo, temperatura, segurança e lógica de ativação sequencial.</p>
+        </div>
+
+        <div class="card">
+            <h3>Sensor NTC</h3>
+            <p>Monitoramento térmico contínuo para precisão, economia de energia e proteção contra superaquecimento.</p>
+        </div>
+
+        <div class="card">
+            <h3>Relé com Optoacoplador</h3>
+            <p>Isolamento elétrico completo para proteger o microcontrolador contra ruídos dos motores.</p>
+        </div>
+
+        <div class="card">
+            <h3>Fusível Térmico</h3>
+            <p>Camada final de segurança física, interrompendo permanentemente a energia em caso de falha extrema.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="section">
+    <h2>Fluxo de Ar 360° – Convecção Forçada Dupla</h2>
+    <div class="grid">
+
+        <div class="card">
+            <h3>Fluxo de Cozimento</h3>
+            <p>Ar aquecido desce pelas laterais e sobe pelo centro, envolvendo o alimento completamente, potencializando a reação de Maillard.</p>
+        </div>
+
+        <div class="card">
+            <h3>Fluxo de Proteção</h3>
+            <p>Ar externo circula entre câmara quente e carcaça, mantendo superfície externa abaixo de 40°C.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="section dark-section">
+    <h2>Isolamento Térmico Profissional</h2>
+    <div class="grid">
+
+        <div class="card">
+            <h3>Sanduíche Térmico</h3>
+            <p>Aço inox interno + Lã de Rocha 25mm + Carcaça externa estrutural.</p>
+        </div>
+
+        <div class="card">
+            <h3>Quebra Térmica</h3>
+            <p>Espaçadores cerâmicos e arruelas de fibra evitam condução direta de calor entre as chapas.</p>
+        </div>
+
+        <div class="card">
+            <h3>Janela Borossilicato</h3>
+            <p>Monitoramento interno sem abrir a câmara, mantendo eficiência térmica.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="section">
+    <h2>Componentes Premium</h2>
+    <div class="grid">
+
+        <div class="card">
+            <h3>Grade Elevada Inox 304</h3>
+            <p>Circulação inferior completa e drenagem de gordura para cozimento saudável.</p>
+        </div>
+
+        <div class="card">
+            <h3>Espeto com Encaixe Anti-deslizante</h3>
+            <p>Acoplador em formato D ou quadrado com compensação térmica.</p>
+        </div>
+
+        <div class="card">
+            <h3>Motorredutor 12V</h3>
+            <p>Rotação constante de 10 RPM para modo churrasco com máxima uniformidade.</p>
+        </div>
+
+        <div class="card">
+            <h3>ESP32-CAM com Isolamento Térmico</h3>
+            <p>Instalação externa com janela óptica ou caixa isolada com pressão positiva de ar.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="section">
+    <h2>Experimente a Revolução 360°</h2>
+    <p style="margin-bottom:25px; font-size:18px;">
+        Alta performance térmica, segurança multicamadas e engenharia robusta para elevar sua experiência culinária ao próximo nível.
+    </p>
+    <button class="btn" onclick="redirecionarParaWhatsApp()">Solicitar Demonstração</button>
+</section>
+
+<script>
+function redirecionarParaWhatsApp() {
+  const numero = "5547991178121"; // Substitua pelo número desejado
+  const url = `https://api.whatsapp.com/send?phone=${numero}`;
+  window.open(url, '_blank');
+}
+</script>
+
+<footer>
+    © Copyright 2026 DuChef. Todos os direitos reservados.<br>
+    Jaraguá do Sul, SC<br>
+    Jaraguá do Sul/RS, CEP 89256-000. CNPJ: 44.434.638/0001-06 - Razão Social: DUCHEF COMERCIO VAREJISTA LTDA. Central de Atendimento - Telefone: (47) 9117-8121. Todos os preços e condições comerciais estão sujeitos a alteração sem aviso prévio. As imagens dos produtos são meramente ilustrativas.
+</footer>
+
+</body>
+</html>
